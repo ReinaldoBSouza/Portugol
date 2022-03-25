@@ -10,15 +10,16 @@ programa
 {
 	
 	inclua biblioteca Texto -->t	// Será utilizado a função CaixaAlta() para garantir que a variavel resp esteja em maiuscula
+	inclua biblioteca Util -->u   // Será utilizado a função Aguarde () para esperar um tempo ( 500 milisegundos = metade de 1 segundo ) antes de mostrar cada linha da tabuada
 	
 	funcao inicio()
 	{
 
 		inteiro num, cont
-		caracter resp = 'S'
+		cadeia resp = "S"
 
 		// Início do loop que controla se usuário deseja continuar vendo tabuadas, caso ele tenha digitado : "S" ou "s"
-		enquanto (resp == 'S' ou resp == 's'){
+		enquanto (t.caixa_alta(resp) == "S"){ // Mesmo que o usuário digite "s" minusculo a função vai converter um "S" maiusculo
 			
 			limpa()
 
@@ -42,6 +43,7 @@ programa
 			enquanto (cont <= 10){
 	
 				escreva("\n ", num, " * ",  cont , " = ",  num*cont)
+				u.aguarde(500)
 	
 				cont+=1 // Podemos também escrever : cont++ ou cont = cont + 1
 							
@@ -49,7 +51,7 @@ programa
 
 
 			// Pergunta se o usuário deseja continuar vendo tabuadas : espera-se que o usuário digite "S" ou "s"
-			escreva("\n\nDeseja calcular a tabuada de outro número ? [S]im ou [N]ão] : ")
+			escreva("\n\nDeseja vusualizar a tabuada de outro número ? [S]im ou [N]ão : ")
 			leia(resp)
 			
 		} // Fim do loop principal que verifica se o usuário deseja continuar
@@ -61,9 +63,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1557; 
+ * @POSICAO-CURSOR = 501; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {num, 17, 10, 3}-{cont, 17, 15, 4};
+ * @SIMBOLOS-INSPECIONADOS = {num, 18, 10, 3}-{cont, 18, 15, 4};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
